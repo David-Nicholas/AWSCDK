@@ -7,6 +7,9 @@ import path = require('path'); import { table } from 'console';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as cognito from 'aws-cdk-lib/aws-cognito'
 import { AuthorizationType } from 'aws-cdk-lib/aws-apigateway';
+import * as codepipeline from '@aws-cdk/aws-codepipeline';
+import { Pipeline } from 'aws-cdk-lib/aws-codepipeline';
+
 
 
 export class CdkStackDavidStack extends cdk.Stack {
@@ -159,8 +162,14 @@ export class CdkStackDavidStack extends cdk.Stack {
     authorizationType: api.AuthorizationType.COGNITO,
     authorizationScopes: ["email"]
   });
-  }
-
   
+  ////////////Test codePipeline////////////
+
+  const dynamoDB_tableTest = new dynamoDB.Table(this, "myDynamoDb_tableTest", 
+    {partitionKey: { name: 'pk', type: dynamoDB.AttributeType.STRING }, 
+    sortKey:{name:"sk", type:dynamoDB.AttributeType.STRING},
+    removalPolicy:cdk.RemovalPolicy.DESTROY
+    });
+}
 }
 

@@ -165,7 +165,7 @@ export class CdkStackDavidStack extends cdk.Stack {
   
   ////////////Test codePipeline////////////
 
-  const dynamoDB_tableTest = new dynamoDB.Table(this, "myDynamoDb_tableTest", 
+  const dynamoDB_tableTest2 = new dynamoDB.Table(this, "myDynamoDb_tableTest2", 
     {partitionKey: { name: 'pk', type: dynamoDB.AttributeType.STRING }, 
     sortKey:{name:"sk", type:dynamoDB.AttributeType.STRING},
     removalPolicy:cdk.RemovalPolicy.DESTROY

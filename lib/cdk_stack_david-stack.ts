@@ -6,9 +6,6 @@ import * as dynamoDB from 'aws-cdk-lib/aws-dynamodb';
 import path = require('path'); import { table } from 'console'; 
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as cognito from 'aws-cdk-lib/aws-cognito'
-import { AuthorizationType } from 'aws-cdk-lib/aws-apigateway';
-import * as codepipeline from '@aws-cdk/aws-codepipeline';
-import { Pipeline } from 'aws-cdk-lib/aws-codepipeline';
 
 
 

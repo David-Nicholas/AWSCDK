@@ -6,6 +6,7 @@ import * as dynamoDB from 'aws-cdk-lib/aws-dynamodb';
 import path = require('path'); import { table } from 'console'; 
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as cognito from 'aws-cdk-lib/aws-cognito'
+import * as s3 from 'aws-cdk-lib/aws-s3'; 
 
 
 
@@ -20,6 +21,12 @@ export class CdkStackDavidStack extends cdk.Stack {
     sortKey:{name:"sk", type:dynamoDB.AttributeType.STRING},
     removalPolicy:cdk.RemovalPolicy.DESTROY
     });
+
+  ////////////Test codePipeline////////////
+
+  const bucket = new s3.Bucket(this, 'MyBucket', {
+    removalPolicy: cdk.RemovalPolicy.DESTROY, 
+  });
 
   /////////////////Lambda definition////////////////////////////////
 
@@ -160,13 +167,6 @@ export class CdkStackDavidStack extends cdk.Stack {
     authorizationScopes: ["email"]
   });
   
-  ////////////Test codePipeline////////////
-
-  const dynamoDB_tableTest2 = new dynamoDB.Table(this, "myDynamoDb_tableTest2", 
-    {partitionKey: { name: 'pk', type: dynamoDB.AttributeType.STRING }, 
-    sortKey:{name:"sk", type:dynamoDB.AttributeType.STRING},
-    removalPolicy:cdk.RemovalPolicy.DESTROY
-    });
 }
 }
 

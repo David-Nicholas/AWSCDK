@@ -24,7 +24,7 @@ export class CdkStackDavidStack extends cdk.Stack {
 
   ////////////Test codePipeline////////////
 
-  const bucket = new s3.Bucket(this, 'MyBucket', {
+  const buckeTest = new s3.Bucket(this, 'MyBucketTest', {
     removalPolicy: cdk.RemovalPolicy.DESTROY, 
   });
 
